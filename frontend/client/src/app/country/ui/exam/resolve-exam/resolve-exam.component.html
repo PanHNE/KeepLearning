@@ -1,0 +1,45 @@
+<div>
+    <div class="form-group">
+        <div class="container">
+            <div class="row align-items-start">
+                <div>
+                    <h3>Exam parameters:</h3>
+
+                    @if (exam.name != null)
+                    {
+                        <div class="col-10">Exam name: <span class="fw-bold">{{ exam.name }}</span></div>    
+                    }
+
+                    <div class="col-10">Number of questions: <span class="fw-bold">{{ exam.questions.length }}</span></div>
+
+                    <div class="col-10">Guess type: <span class="fw-bold"> {{ exam.category }}</span></div>
+
+                    <div class="col-10"> Choosen continents:
+                        <ul>
+                            @for (continent of exam.continents; track $index) {
+                                <li class="fw-bold"> {{ continent }}</li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <app-question-table [questions]="exam.questions" [questionCategory]="questionCategory" [answerCategory]="answerCategory"/>
+
+    <div class="Result" style="display: none">
+        <div>Corect answers: <span class="CorrectAnswers"></span></div>
+        <div>Incorrect answers: <span class="IncorrectAnswers"></span></div>
+    </div>
+
+    <hr />
+
+    <div>
+        <div class="row m-4">
+            <div class="col-xs-10 col-sm-8 col-md-4 col-lg-3 m-2">
+                <a id="checkAnswers" class="btn btn-success col-sm-10" role="button">Check answers</a>
+            </div>
+        </div>
+    </div>
+</div>

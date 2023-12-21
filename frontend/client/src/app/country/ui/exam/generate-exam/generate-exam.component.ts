@@ -20,6 +20,7 @@ import { Checkbox } from '../../../../common/checkbox/model/checkbox';
 export class GenerateExamComponent implements OnInit {
   @Input() continentsCheckbox: Checkbox[] = [];
   public continents: string[] = [];
+  public url = 'http://localhost:4200/country/resolveExam'
 
   private route: ActivatedRoute = inject(ActivatedRoute);
 
